@@ -1,0 +1,1 @@
+export async function sendVoiceAgentWebhook(url:string,payload:unknown){const res=await fetch(url,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});return {ok:res.ok,status:res.status};}

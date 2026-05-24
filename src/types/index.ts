@@ -1,0 +1,3 @@
+export type AgentStatus='Draft'|'Ready'|'Published';
+export type FAQ={question:string;answer:string};
+export type VoiceAgent={id:string;business_name:string;website_url:string;phone_number:string;transfer_phone_number:string;calendar_id:string;business_hours:string;tone:string;status:AgentStatus;scraped_content:string;knowledge_base:string;faqs:FAQ[];system_prompt:string;inquiry_flow:string;message_taking_flow:string;missed_call_callback_flow:string;call_transfer_flow:string;appointment_booking_flow:string;ghl_payload:Record<string,unknown>|null;webhook_payload:Record<string,unknown>|null;created_at:string;updated_at:string;user_id:string};

@@ -1,0 +1,1 @@
+export default function Settings(){return <div className='card'><h1 className='text-2xl font-semibold mb-2'>Settings</h1><p>Store GHL access token, default location ID, webhook URL, model preference.</p></div>}

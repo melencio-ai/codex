@@ -1,0 +1,1 @@
+export default function NewAgent(){return <div className='space-y-4'><h1 className='text-2xl font-semibold'>Create Voice Agent</h1><div className='card'>Multi-step form placeholder: Business Details, Website Scraping, Knowledge Base Review, Voice Settings, Publish/Export.</div></div>}

@@ -1,0 +1,2 @@
+import Link from 'next/link';
+export default function Dashboard(){return <div className='space-y-4'><div className='flex justify-between'><h1 className='text-2xl font-semibold'>Voice Agents</h1><Link href='/agents/new' className='btn'>Create New Agent</Link></div><div className='card'>Connect Supabase data query for user agents and render cards with actions: Edit, Test, Duplicate, Delete.</div></div>}

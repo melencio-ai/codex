@@ -1,0 +1,2 @@
+import { openai } from './openai';
+export async function generateFaqs(kb:string){const r=await openai.chat.completions.create({model:'gpt-4.1-mini',response_format:{type:'json_object'},messages:[{role:'system',content:'Return JSON object with key faqs containing exactly 10 items each with question and answer.'},{role:'user',content:kb}]});return JSON.parse(r.choices[0]?.message?.content||'{"faqs":[]}').faqs;}
