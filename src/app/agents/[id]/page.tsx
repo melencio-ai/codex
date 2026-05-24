@@ -1,0 +1,1 @@
+export default function AgentDetail(){return <div className='space-y-4'><h1 className='text-2xl font-semibold'>Agent Editor</h1><div className='card'>Edit knowledge base, FAQs, and prompt. Add test simulator and webhook send actions.</div></div>}

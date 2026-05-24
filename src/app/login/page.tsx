@@ -1,0 +1,1 @@
+export default function Login(){return <div className='card max-w-md mx-auto'><h1 className='text-xl font-semibold mb-3'>Login</h1><p>Use Supabase Auth UI/component integration here (email magic link or password).</p></div>}

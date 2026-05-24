@@ -1,0 +1,10 @@
+create extension if not exists "pgcrypto";
+create table if not exists profiles (id uuid primary key references auth.users(id) on delete cascade,email text not null,created_at timestamptz default now());
+create table if not exists ghl_connections (id uuid primary key default gen_random_uuid(),user_id uuid not null references auth.users(id) on delete cascade,access_token text not null,refresh_token text,location_id text,company_id text,created_at timestamptz default now(),updated_at timestamptz default now());
+create table if not exists voice_agents (id uuid primary key default gen_random_uuid(),user_id uuid not null references auth.users(id) on delete cascade,business_name text not null,website_url text not null,phone_number text not null,transfer_phone_number text not null,calendar_id text not null,business_hours text not null,tone text not null,status text not null default 'Draft',scraped_content text,knowledge_base text,faqs jsonb default '[]'::jsonb,system_prompt text,inquiry_flow text,message_taking_flow text,missed_call_callback_flow text,call_transfer_flow text,appointment_booking_flow text,ghl_payload jsonb,webhook_payload jsonb,created_at timestamptz default now(),updated_at timestamptz default now());
+create table if not exists agent_tests (id uuid primary key default gen_random_uuid(),agent_id uuid not null references voice_agents(id) on delete cascade,test_input text not null,test_response text not null,created_at timestamptz default now());
+alter table profiles enable row level security;alter table ghl_connections enable row level security;alter table voice_agents enable row level security;alter table agent_tests enable row level security;
+create policy "own profile" on profiles for all using (auth.uid()=id);
+create policy "own ghl" on ghl_connections for all using (auth.uid()=user_id);
+create policy "own agents" on voice_agents for all using (auth.uid()=user_id);
+create policy "own tests" on agent_tests for all using (exists(select 1 from voice_agents v where v.id=agent_tests.agent_id and v.user_id=auth.uid()));

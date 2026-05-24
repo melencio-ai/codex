@@ -1,0 +1,1 @@
+export const env={supabaseUrl:process.env.SUPABASE_URL!,supabaseAnonKey:process.env.SUPABASE_ANON_KEY!,supabaseServiceRoleKey:process.env.SUPABASE_SERVICE_ROLE_KEY!,openaiApiKey:process.env.OPENAI_API_KEY!,ghlApiBaseUrl:process.env.GHL_API_BASE_URL||'https://services.leadconnectorhq.com'};

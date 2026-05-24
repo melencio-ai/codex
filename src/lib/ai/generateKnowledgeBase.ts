@@ -1,0 +1,2 @@
+import { openai } from './openai';
+export async function generateKnowledgeBase(scraped:string){const r=await openai.chat.completions.create({model:'gpt-4.1-mini',messages:[{role:'system',content:'Create structured business knowledge base sections: Business Overview, Services, Ideal Customers, Pricing, Location, Business Hours, Contact Details, Policies, Important Notes, Things the agent should not say. Be concise and factual.'},{role:'user',content:scraped}]});return r.choices[0]?.message?.content||'';}

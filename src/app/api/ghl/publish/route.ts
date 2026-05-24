@@ -1,0 +1,2 @@
+import { NextResponse } from 'next/server';import { ghlVoiceAgentService } from '@/lib/ghl/ghlVoiceAgentService';
+export async function POST(req:Request){const {agentId,config}=await req.json();const created=await ghlVoiceAgentService.create(config);const published=await ghlVoiceAgentService.publish(agentId||'pending');return NextResponse.json({created,published,todo:'Use official GHL voice endpoint when available'});}

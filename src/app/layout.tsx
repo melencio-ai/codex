@@ -1,0 +1,2 @@
+import './globals.css';import Link from 'next/link';
+export default function RootLayout({children}:{children:React.ReactNode}){return <html lang='en'><body><nav className='p-4 border-b bg-white flex gap-4'><Link href='/dashboard'>Dashboard</Link><Link href='/agents/new'>New Agent</Link><Link href='/settings'>Settings</Link></nav><main className='max-w-6xl mx-auto p-6'>{children}</main></body></html>}
